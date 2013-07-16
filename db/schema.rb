@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716120720) do
+ActiveRecord::Schema.define(:version => 20130716132425) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "type"
+    t.string   "event_type"
     t.date     "cutoff_date"
     t.float    "result"
     t.datetime "created_at",  :null => false
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(:version => 20130716120720) do
   end
 
   create_table "forecasts", :force => true do |t|
-    t.integer  "forecast_result"
+    t.string   "forecast_result"
     t.text     "forecast_explination"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.integer  "event_id"
   end
 
   create_table "users", :force => true do |t|

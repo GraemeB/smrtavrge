@@ -24,6 +24,7 @@ class ForecastsController < ApplicationController
   # GET /forecasts/new
   # GET /forecasts/new.json
   def new
+    @event = Event.find(params[:event_id])
     @forecast = Forecast.new
 
     respond_to do |format|
@@ -34,14 +35,16 @@ class ForecastsController < ApplicationController
 
   # GET /forecasts/1/edit
   def edit
+    @event = Event.find(params[:event_id])
     @forecast = Forecast.find(params[:id])
   end
 
   # POST /forecasts
   # POST /forecasts.json
   def create
-    @forecast = Forecast.new(params[:forecast])
-
+    @event = Event.find(params[:event_id])
+    @forecast = @event.forecasts.new(params[:forecast])
+    
     respond_to do |format|
       if @forecast.save
         format.html { redirect_to @forecast, notice: 'Forecast was successfully created.' }

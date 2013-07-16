@@ -1,13 +1,11 @@
 Smrtavrge::Application.routes.draw do
   resources :forecasts
 
-
+  resources :events do
+    resources :forecasts
+  end
+  
   resources :users
-
-
-  resources :events
-
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
