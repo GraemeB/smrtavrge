@@ -1,4 +1,7 @@
 Smrtavrge::Application.routes.draw do
+  resources :forecasts
+
+
   resources :users
 
 
