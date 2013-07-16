@@ -25,8 +25,21 @@
   <%= @event.result %>
 </p>
 
+<table class="table">
+<tr>
+  <th>Forecast</th>
+  <th>Forecast Description</th>
+</tr>
+<% @event.forecasts.each do |forecast| %>
+<tr>
+  <td><%= forecast.forecast_result %></td>
+  <td><%= forecast.forecast_explination %></td>
+</tr>
+<% end %>
+</table>
+
 <p>
-  <%= link_to 'Make Forecast', new_event_forecast_path(@event) %>
+  <%= link_to 'Make Forecast', new_event_forecast_path(@event)%>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

@@ -1,4 +1,7 @@
 Smrtavrge::Application.routes.draw do
+  
+  root:to=> "welcome#index"
+
   resources :forecasts
 
   resources :events do
