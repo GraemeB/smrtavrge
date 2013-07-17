@@ -42,6 +42,16 @@
             </ul>
        
         </div><!--/.nav-collapse -->
+        <p class="navbar-text pull-right">
+        <div class="nav-collapse collapse">
+            <ul class="nav">
+              <% if user_signed_in? %>
+              <li><%= link_to current_user.email, edit_user_registration_path %></li>
+              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Log In", new_user_session_path %></li>
+              <% end %>
         </div>
       </div>
     </div>
@@ -62,7 +72,7 @@
       <hr>
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>&copy; If you see it, you will remember it, If you do it, you will know it </p>
       </footer>
 
     </div> <!-- /container -->

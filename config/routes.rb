@@ -1,6 +1,9 @@
 Smrtavrge::Application.routes.draw do
   
+
   root:to=> "welcome#index"
+  
+  devise_for :users
 
   resources :forecasts
 
@@ -8,7 +11,7 @@ Smrtavrge::Application.routes.draw do
     resources :forecasts
   end
   
-  resources :users
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
