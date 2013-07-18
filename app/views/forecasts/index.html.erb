@@ -1,11 +1,11 @@
 <h1>Listing forecasts</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Forecast result</th>
     <th>Forecast explination</th>
-    <th></th>
-    <th></th>
+    <th>Event ID</th>
+    <th>User</th>
     <th></th>
   </tr>
 
@@ -13,6 +13,8 @@
   <tr>
     <td><%= forecast.forecast_result %></td>
     <td><%= forecast.forecast_explination %></td>
+    <td><%= forecast.event_id %><td>
+    <td><%= current_user.email %><td>
     <td><%= link_to 'Show', forecast %></td>
     <td><%= link_to 'Edit', edit_forecast_path(forecast) %></td>
     <td><%= link_to 'Destroy', forecast, method: :delete, data: { confirm: 'Are you sure?' } %></td>

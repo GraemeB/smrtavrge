@@ -1,4 +1,6 @@
 class ForecastsController < ApplicationController
+  before_filter :authenticate_user!, only:[:new, :create, :edit, :update, :destroy]
+ 
   # GET /forecasts
   # GET /forecasts.json
   def index
@@ -26,7 +28,7 @@ class ForecastsController < ApplicationController
   def new
     @event = Event.find(params[:event_id])
     @forecast = Forecast.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @forecast }
@@ -42,6 +44,7 @@ class ForecastsController < ApplicationController
   # POST /forecasts
   # POST /forecasts.json
   def create
+    
     @event = Event.find(params[:event_id])
     @forecast = @event.forecasts.new(params[:forecast])
     
@@ -83,4 +86,5 @@ class ForecastsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
